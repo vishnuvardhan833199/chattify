@@ -9,6 +9,7 @@ import { initSocket } from "./lib/socket.js";
 
 import authRoutes from "./routes/auth.route.js";
 import messageRoutes from "./routes/message.route.js";
+import callRoutes from "./routes/call.route.js";
 
 dotenv.config();
 
@@ -39,6 +40,7 @@ app.use(
 // Routes
 app.use("/api/auth", authRoutes);
 app.use("/api/messages", messageRoutes);
+app.use("/api/calls", callRoutes);
 
 app.get("/", (req, res) => {
   res.send("Server is running");

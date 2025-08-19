@@ -1,9 +1,10 @@
-import { X } from "lucide-react";
+import { Phone, Video, X } from "lucide-react";
 import { useAuthStore } from "../store/useAuthStore";
 import { useChatStore } from "../store/useChatStore";
 
 const ChatHeader = () => {
   const { selectedUser, setSelectedUser } = useChatStore();
+  const { startCall } = useChatStore();
   const { onlineUsers } = useAuthStore();
 
   return (
@@ -27,9 +28,13 @@ const ChatHeader = () => {
         </div>
 
         {/* Close button */}
-        <button onClick={() => setSelectedUser(null)}>
-          <X />
-        </button>
+        <div className="flex items-center gap-2">
+          <button className="btn btn-ghost btn-sm" onClick={() => startCall("audio")}> <Phone size={18} /> </button>
+          <button className="btn btn-ghost btn-sm" onClick={() => startCall("video")}> <Video size={18} /> </button>
+          <button className="btn btn-ghost btn-sm" onClick={() => setSelectedUser(null)}>
+            <X />
+          </button>
+        </div>
       </div>
     </div>
   );

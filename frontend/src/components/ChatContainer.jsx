@@ -48,6 +48,19 @@ const ChatContainer = () => {
       <ChatHeader />
 
       <div className="flex-1 overflow-y-auto p-4 space-y-4">
+        {/* Remote video/audio */}
+        {useChatStore.getState().activeCall?.mediaType === "video" && (
+          <video
+            autoPlay
+            playsInline
+            ref={(el) => {
+              const stream = useChatStore.getState().activeCall?.remoteStream;
+              if (el && stream) el.srcObject = stream;
+            }}
+            className="w-48 rounded-lg border"
+          />
+        )}
+
         {messages.map((message) => (
           <div
             key={message._id}
