@@ -1,5 +1,11 @@
 {
-  "dependencies": {
-    "bcrypt": "^6.0.0"
+  "name": "chattify",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "start": "concurrently \"npm run dev --prefix backend\" \"npm run dev --prefix frontend\""
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2"
   }
 }

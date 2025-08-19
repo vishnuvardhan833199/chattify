@@ -1,10 +1,9 @@
 import {useState} from "react";
 import {useAuthStore} from "../store/useAuthStore";
 import {Camera,Mail,User} from "lucide-react";
-import { updateProfile } from "../../../backend/src/controllers/auth.controller";
 
 const ProfilePage=()=>{
-    const {authUser,isUpdatingProfile}=useAuthStore();
+    const {authUser,isUpdatingProfile, updateProfile}=useAuthStore();
     const [selectedImg,setSelectedImg]=useState(null);
     const handleImageUpload=async(e)=>{
         const file=e.target.files[0];
